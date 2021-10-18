@@ -29,7 +29,7 @@ for i = 2:t_end/dt
     s = s + vb_e2(i)*dt;
 end
 
-fprintf('Distance travelled: %s units',s);
+fprintf('Distance travelled: %s units \n',s);
 
 plot(t,vb_a, 'r-', t, vb_e2, 'b-')
 ylabel('velocity')
