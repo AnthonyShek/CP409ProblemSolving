@@ -18,14 +18,19 @@ t = linspace(0, t_end, t_end/dt);
 vb_a = sqrt(2.*k.*va^2.*D^2./Cd./(V0-Q.*t).^(2/3));
 
 %vb_e(1) = 0;
-vb_e2(1) = 0; % corrected to include dm/dt term
+vb_e2(1) = vb_a(1); % corrected to include dm/dt term
+s = vb_e2*dt;
 
 for i = 2:t_end/dt
 %    dvdt = (k*va^2*D^2*rho-0.5*rho*Cd*(V0-Q*t(i-1)^(2/3))*vb_e(i-1)^2)/(m0+rho*(V0-Q*t(i-1)));
     dvdt2 = (k*va^2*D^2+0.25*va*vb_e2(i-1)*D^2-0.5*Cd*(V0-Q*t(i-1)^(2/3))*vb_e2(i-1)^2)/(m0/rho+(V0-Q*t(i-1)));
 %    vb_e(i) = vb_e(i-1) + dvdt*dt;
     vb_e2(i) = vb_e2(i-1) + dvdt2*dt;
+    s = s + vb_e2(i)*dt;
 end
+
+fprintf('Distance travelled: %s units',s);
+
 plot(t,vb_a, 'r-', t, vb_e2, 'b-')
 ylabel('velocity')
 xlabel('time')
