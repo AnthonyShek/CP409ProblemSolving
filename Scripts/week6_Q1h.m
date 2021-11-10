@@ -1,8 +1,8 @@
 clear all
 
-t_end = 60; % s
+t_end = 6000; % s
 dt = 0.1; % incre s
-Tinf = 0; % init temp
+Tinf = 15; % init temp
 T(1) = Tinf; 
 Tb(1) = 90;
 t(1) = 0;
@@ -25,7 +25,7 @@ tau = cp*m*x/k/A/2;
 
 % Euler's method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for i = 2:t_end/dt
-    dTbdt = -Q0/cpw/(Tb0-Tinf)*(Tb(i-1)-T(i-1));
+    dTbdt = -Q0/cpw/m/(Tb0-Tinf)*(Tb(i-1)-T(i-1));
     Tb(i) = Tb(i-1) + dTbdt*dt;
     
     Q = Q0*(Tb(i)-T(i-1))/(Tb0-Tinf);
