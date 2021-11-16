@@ -1,6 +1,6 @@
 clear all
 
-t_end = 5e4; % s
+t_end = 1e5; % s
 dt = 0.1; % incre s
 Tinf = 15; % init temp
 T(1) = Tinf; 
