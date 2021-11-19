@@ -42,7 +42,3 @@ hold on
 xlabel('alpha')
 ylabel('Energy Expenditure')
 hold off
-
-
-
-

@@ -32,8 +32,10 @@ for i = 1:3
     
     if i == 2
         t = 30*24*60^2;
+        nexttile
     elseif i == 3
         fppL = 1.4;
+        nexttile
     end
     
     f_cost = P*t/(Cf*eta)*fppL;
@@ -45,5 +47,4 @@ for i = 1:3
     xlabel('Initial iceberg radius')
     hold on
     plot([st ed], [0 0])
-    nexttile
 end
