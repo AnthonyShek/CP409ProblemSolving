@@ -33,12 +33,15 @@ end
 
 % Analytical method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Ea = k/(4*alpha).*((tau + alpha.*t).^4-tau^4);
+Ea = Cd*rho*A*L^3/(2*t_end^2); % analytical min E at alpha = 0
 
 % Plotting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-plot(alpha, E);
+plot(alpha, E, 'b-');
 hold on
 xlabel('alpha')
 ylabel('Energy Expenditure')
+plot(0, Ea, 'ro')
+labels = {'min E analytical'};
+text(0,Ea,labels,'VerticalAlignment','bottom','HorizontalAlignment','right')
 hold off
